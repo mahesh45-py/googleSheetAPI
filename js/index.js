@@ -54,7 +54,7 @@ function submitData(){
       }
       $.ajax({
         url:endpoint,
-        method:'POST',
+        type :'POST',
         contentType:'application/json',
         Accept: 'application/json',
         data:JSON.stringify(data),
