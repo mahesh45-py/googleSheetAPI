@@ -52,6 +52,21 @@ function submitData(){
         "lat":lat,
         "lon": lon
       }
+
+       $.ajax({
+        type: 'POST',
+        url: endpoint,
+        data: data,
+        dataType: "application/json",
+        success:function(response){
+          showNotification(response.message,response.status)
+            console.log(response);
+        },
+        error:function(err){
+          showNotification("A system error occurred, please try again later",false)
+            console.error(err)
+        }
+      });
       $.ajax({
         url:endpoint,
         type :'POST',
