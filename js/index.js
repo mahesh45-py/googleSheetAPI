@@ -36,12 +36,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function showNotification(msg,status){
   var html = `<div class="notification ${status?'is-success':'is-danger'}">
-  <button class="delete"></button>
+  <button onclick="hideNotification()" class="delete"></button>
   ${msg}
 </div>`
   $(".notif").html(html)
 }
 
+function hideNotification(){
+  $(".notif").html('')
+}
+
+
+function spinner(load){
+  if(load){
+    $(".submit").html('<i class="fas fa-spinner fa-spin"></i>')
+  }else{
+    $(".submit").html('Submit')
+  }
+}
 
 function submitData(){
     var name = $(".name").val();
@@ -52,34 +64,21 @@ function submitData(){
         "lat":lat,
         "lon": lon
       }
-
+      spinner(true)
        $.ajax({
         type: 'POST',
         url: endpoint,
         data: JSON.stringify(data),
         success:function(response){
+          spinner(false)
           showNotification(response.message,response.status)
             console.log(response);
         },
         error:function(err){
+          spinner(false)
           showNotification("A system error occurred, please try again later",false)
             console.error(err)
         }
       });
-    //   $.ajax({
-    //     url:endpoint,
-    //     type :'POST',
-    //     contentType:'application/json',
-    //     Accept: 'application/json',
-    //     data:JSON.stringify(data),
-    //     success:function(response){
-    //       showNotification(response.message,response.status)
-    //         console.log(response);
-    //     },
-    //     error:function(err){
-    //       showNotification("A system error occurred, please try again later",false)
-    //         console.error(err)
-    //     }
-    // })
 }
   
