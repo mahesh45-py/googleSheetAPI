@@ -57,7 +57,6 @@ function submitData(){
         type: 'POST',
         url: endpoint,
         data: JSON.stringify(data),
-        contentType: "application/json",
         success:function(response){
           showNotification(response.message,response.status)
             console.log(response);
