@@ -26,7 +26,7 @@ $(document).ready(function(){
       url: `https://api.postalpincode.in/pincode/531021`,
       success:function(response){
           
-          console.log(response.dat);
+          console.log(response);
       },
       error:function(err){
       
