@@ -21,6 +21,18 @@ $(document).ready(function(){
         lat = location.latitude;
         lon = location.longitude;
     });
+    $.ajax({
+      method: 'GET',
+      url: `https://api.postalpincode.in/pincode/531021`,
+      success:function(response){
+          
+          console.log(response);
+      },
+      error:function(err){
+      
+          console.error(err)
+      }
+    });
       
 })
 
