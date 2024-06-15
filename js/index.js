@@ -1,5 +1,5 @@
 
-var endpoint = 'https://script.google.com/macros/s/AKfycbxF32BTdW53v1v_nOJ4aGD743EyIH2yLb7VNQBWTqG1sSXT8nFqJQ4x5sLZMQ3I82o_/exec'
+var endpoint = 'https://script.google.com/macros/s/AKfycbz93z46meWKfTN5U8kzEmkiUu0Av0ByjO0lFvLHYx95O64kgv8GYfKPrQDj_L8gzoch/exec'
 
 
 function getLocation(callback) {
